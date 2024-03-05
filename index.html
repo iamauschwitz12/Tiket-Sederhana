@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tiket Online</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="judul">
+        <h3>Pemesanan Tiket Online by : iamasuchwitz</h3>
+      </div>
+    </div>
+
+    <div class="konten">
+      <div class="konten-atas">
+        <div class="bungkus-film">
+          <div class="bungkus-card">
+            <div class="card">
+              <img src="img/1.jpeg" alt="" />
+            </div>
+            <div class="card">
+              <img src="img/2.jpeg" alt="" />
+            </div>
+            <div class="card">
+              <img src="img/3.jpeg" alt="" />
+            </div>
+            <div class="card">
+              <img src="img/4.jpeg" alt="" />
+            </div>
+            <div class="card">
+              <img src="img/5.jpeg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="konten-bawah">
+        <div class="bungkus-bawah">
+          <div class="bawah-kiri">
+            <div class="utama-kiri">
+              <div class="kiri-judul">
+                <h3>Pesan Tiket</h3>
+              </div>
+              <div class="form">
+                <select name="" id="film">
+                  <option value="">-- Pilih Film --</option>
+                  <option value="film1">Madamame</option>
+                  <option value="film2">Pemandi Jenazah</option>
+                  <option value="film3">Agak laen</option>
+                  <option value="film4">Bob Marley : One Love</option>
+                  <option value="film5">Sinden Goib</option>
+                </select>
+                <input type="text" id="harga" disabled /> <br />
+                <p>Jumlah Beli Tiket :</p>
+                <input type="text" name="" id="j_tiket" />
+                <span>Total : <span id="Bayar"></span></span>
+                <p id="p">
+                  Note : Lorem ipsum, dolor sit amet consectetur adipisicing
+                  elit. Quidem consectetur quisquam, ex esse doloribus
+                  blanditiis ut laboriosam quae odit? Consequuntur, ut officiis.
+                  Aspernatur quod ipsum repudiandae! Dolore vitae nam dicta.
+                </p>
+              </div>
+              <div class="tombol">
+                <button value="hitung" onclick="hitung()">Hitung</button>
+                <button type="reset" value="reset">Clear</button>
+              </div>
+            </div>
+          </div>
+          <div class="bawah-kanan">
+            <div class="bungkus-kanan">
+              <div class="isi-kiri">
+                <img id="img" src="img/3.jpeg" alt="" />
+              </div>
+              <div class="isi-kanan">
+                <div class="kanan-judul">
+                  <h3>Sinopsis</h3>
+                  <br/>
+                  <p id="sinopsis">
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var selectElement = document.getElementById("film");
+      var imgElement = document.getElementById("img");
+      var harga;
+      var sinopsis;
+
+      selectElement.addEventListener("change", function(){
+        var selectValue = selectElement.value;
+
+        if(selectValue === "film1"){
+          imgElement.src = "img/1.jpeg"
+          harga = 54000;
+          sinopsis = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum beatae earum architecto inventore, quo numquam asperiores labore placeat mollitia perspiciatis, eaque quisquam laboriosam voluptatibus libero quasi illo voluptatum, exercitationem dicta!"
+        }else if(selectValue === "film2"){
+          imgElement.src = "img/2.jpeg"
+          harga = 50000;
+          sinopsis = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus doloribus sunt ut nostrum ipsa. Soluta, culpa consequatur quam distinctio accusamus quos maiores in minima? Fugiat vel repudiandae rerum aspernatur quisquam magnam eligendi fuga porro ipsam ex vitae nulla, culpa excepturi soluta ipsa eos placeat cum voluptatibus autem? Ad, magnam fugit."
+        }else if(selectValue === "film3"){
+          imgElement.src = "img/3.jpeg"
+          harga = 45000;
+          sinopsis = "    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat reiciendis, hic eius nulla voluptate ducimus nobis voluptatum ratione aliquid officia voluptates odio ad excepturi praesentium culpa iste aspernatur. Nam excepturi iste harum architecto ducimus, incidunt vitae, dolor debitis temporibus quod optio cumque maxime molestiae corrupti, nobis nihil a adipisci neque consectetur sed perspiciatis eius. Itaque earum sequi placeat maiores culpa."
+        }else if(selectValue === "film4"){
+          imgElement.src = "img/4.jpeg"
+          harga = 60000;
+          sinopsis = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quia, quod deleniti ad provident mollitia cupiditate reiciendis. Illo dicta doloribus laudantium magnam ex facilis aliquid quo earum facere nemo eius eaque, sint quos qui laborum, a molestiae quasi asperiores obcaecati quibusdam fuga tempora explicabo modi."
+        }else if(selectValue === "film5"){
+          imgElement.src = "img/5.jpeg"
+          harga = 35000;
+          sinopsis = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quia, quod deleniti ad provident mollitia cupiditate reiciendis."
+        }
+        document.getElementById("harga").value = harga;
+        document.getElementById("sinopsis").innerText = sinopsis;
+      });
+
+      
+      function hitung() {
+            var hargaTiket = parseInt(document.getElementById("harga").value);
+            var jumlahTiket = parseInt(document.getElementById("j_tiket").value);
+            var totalBayar = hargaTiket * jumlahTiket;
+
+            if (totalBayar) {
+                document.getElementById("Bayar").innerText = totalBayar;
+            } else {
+                document.getElementById("Bayar").innerText = "0";
+            }
+        }
+    </script>
+  </body>
+</html>
